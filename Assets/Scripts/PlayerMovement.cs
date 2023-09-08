@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpForce = 100f;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(jumpForce * Time.deltaTime * transform.up);
+            print("up");
+            rb.AddForce(new Vector2(0, jumpForce));
         }
     }
 }
